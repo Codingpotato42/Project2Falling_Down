@@ -32,5 +32,18 @@ def input(key):
     if key == 'escape':
         quit()  # Quit the application
 
+    # Check if the key is 'left mouse down'
+    if key == 'left mouse down':
+        # Create a new cube entity in front of the player
+        new_cube = Entity(
+            model='cube',
+            texture='white_cube',
+            collider='box',
+            # Place it 2 units in front of the camera
+            # We add a small vertical offset so it doesn't spawn inside the player
+            position = player.position + camera.forward * 2 + Vec3(0, 0.5, 0)
+        )
+
 # Run the application
 app.run()
+
